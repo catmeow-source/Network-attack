@@ -34,21 +34,37 @@ _ATTACK_PORT = 80
 # NORMAL-phase baseline by the last window of ANOMALY, saturating every
 # channel at 1.0 for the remaining 60% of the arc -- visually flat,
 # and contrary to the gradual-climb narrative in design doc §3.1.
+#
+# legit_dest_count: how many entries of _LEGIT_DEST_POOL (8 total,
+# VICTIM_IP last) are reachable/observed in a window. Taking the pool's
+# *last* N entries means VICTIM_IP is always included and the OTHER
+# legit destinations drop off first as this shrinks -- modelling
+# services other than the target becoming unreachable/unobserved under
+# escalating load, so unique_destination_ips actually narrows toward
+# the victim during the attack instead of staying flat at 8 throughout
+# (an earlier version made no such claim true -- see module1_traffic/
+# README.md and tests/test_module1.py for the discrepancy this fixes).
 _STAGE_PLAN = [
     ("NORMAL",          5, dict(records=600,  legit_src=40, attacker_src=0,
-                                 syn_ratio=0.50, fail_rate=0.004, avg_size=500)),
+                                 syn_ratio=0.50, fail_rate=0.004, avg_size=500,
+                                 legit_dest_count=8)),
     ("ANOMALY",         4, dict(records=750,  legit_src=41, attacker_src=4,
-                                 syn_ratio=0.56, fail_rate=0.010, avg_size=450)),
+                                 syn_ratio=0.56, fail_rate=0.010, avg_size=450,
+                                 legit_dest_count=7)),
     ("SCANNING",        4, dict(records=950,  legit_src=42, attacker_src=10,
-                                 syn_ratio=0.63, fail_rate=0.020, avg_size=380)),
+                                 syn_ratio=0.63, fail_rate=0.020, avg_size=380,
+                                 legit_dest_count=5)),
     ("ATTACK IMMINENT", 4, dict(records=1400, legit_src=43, attacker_src=22,
-                                 syn_ratio=0.74, fail_rate=0.045, avg_size=250)),
+                                 syn_ratio=0.74, fail_rate=0.045, avg_size=250,
+                                 legit_dest_count=3)),
     ("DDoS",            3, dict(records=2800, legit_src=44, attacker_src=55,
-                                 syn_ratio=0.92, fail_rate=0.15,  avg_size=64)),
+                                 syn_ratio=0.92, fail_rate=0.15,  avg_size=64,
+                                 legit_dest_count=1)),
 ]
 
 _BASE_PARAMS = dict(records=550, legit_src=38, attacker_src=0,
-                     syn_ratio=0.48, fail_rate=0.003, avg_size=520)
+                     syn_ratio=0.48, fail_rate=0.003, avg_size=520,
+                     legit_dest_count=8)
 
 
 def _lerp(a, b, t):
@@ -81,6 +97,9 @@ def _synthesize_window(rng, params):
     legit_srcs = [f"192.168.{rng.randint(0, 15)}.{i}" for i in range(n_legit_src)]
     attacker_srcs = [f"203.0.{rng.randint(0, 255)}.{i}" for i in range(n_attacker_src)]
 
+    n_active_dests = max(1, min(len(_LEGIT_DEST_POOL), int(round(params["legit_dest_count"]))))
+    active_legit_dests = _LEGIT_DEST_POOL[-n_active_dests:]  # keeps VICTIM_IP, drops others first
+
     denom = n_legit_src + n_attacker_src
     attacker_share = (n_attacker_src / denom) if denom else 0.0
 
@@ -94,7 +113,7 @@ def _synthesize_window(rng, params):
             dst_port = _ATTACK_PORT
         else:
             src_ip = rng.choice(legit_srcs)
-            dst_ip = rng.choice(_LEGIT_DEST_POOL)
+            dst_ip = rng.choice(active_legit_dests)
             dst_port = rng.choice(_LEGIT_PORTS)
 
         is_syn = rng.random() < params["syn_ratio"]
@@ -114,23 +133,40 @@ def _synthesize_window(rng, params):
     return records
 
 
-def generate_demo_traffic(seed=42, window_seconds=config.WINDOW_SECONDS,
-                           warmup_windows=config.BASELINE_WARMUP_WINDOWS):
+def generate_demo_traffic(seed=42, warmup_windows=None):
     """Return [(stage_label, records), ...] for a full scripted
     NORMAL -> DDoS arc. Deterministic for a given seed.
 
+    Note there is no `window_seconds` parameter: every _STAGE_PLAN
+    "records" target is calibrated assuming a WINDOW_SECONDS-long
+    window (e.g. 600 records implies ~10 pkt/s at 60s). An earlier
+    version accepted window_seconds but silently ignored it -- ANY
+    value produced the same record counts, so calling it with a
+    different window length would have fed mismatched data straight
+    into process_traffic(window_seconds=...), corrupting
+    packets_per_second silently. Properly supporting a variable window
+    would mean scaling every stage's targets proportionally, which
+    isn't worth it for a synthetic demo generator; if that's ever
+    needed, do it explicitly rather than resurrecting a dead parameter.
+
     Prepends `warmup_windows` quiet windows of plain background traffic
-    ahead of the scripted arc. Without this, AdaptiveBaseline's
-    `baseline_ready` (design doc §5.1) would never flip true during a
-    20-window demo, since BASELINE_WARMUP_WINDOWS defaults to 30 --
-    the dashboard would sit on "BASELINE WARMING" for the entire demo.
-    These lead-in windows are meant to be replayed fast / skipped
-    visually (§9.4 REPLAY_SPEED), not shown scene by scene.
+    ahead of the scripted arc (defaults to config.BASELINE_WARMUP_WINDOWS,
+    resolved at call time -- not baked in as a parameter default, which
+    would silently ignore a config change made after this module loads).
+    Without this lead-in, AdaptiveBaseline's `baseline_ready` (design
+    doc §5.1) would never flip true during a 20-window demo, since
+    BASELINE_WARMUP_WINDOWS defaults to 30 -- the dashboard would sit
+    on "BASELINE WARMING" for the entire demo. These lead-in windows
+    are meant to be replayed fast / skipped visually (§9.4
+    REPLAY_SPEED), not shown scene by scene.
 
     `stage_label` is the generator's *intended* stage -- useful for
     validating that Module 2's derived trajectory tracks it -- and is
     not part of any module's real output contract.
     """
+    if warmup_windows is None:
+        warmup_windows = config.BASELINE_WARMUP_WINDOWS
+
     rng = random.Random(seed)
     windows = []
 

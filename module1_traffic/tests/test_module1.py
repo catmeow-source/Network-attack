@@ -3,16 +3,11 @@ Smoke tests for Module 1. Run with:
 
     python -m unittest module1_traffic.tests.test_module1 -v
 
-These exist to catch regressions of the two real bugs found while
-building this module (see baseline.py and traffic_generator.py
-docstrings/comments for the full explanation of each):
-
-  1. EWMA variance bootstraps from 0, so without a warm-up exemption
-     the freeze mechanism latches permanently within the first few
-     windows of pure NORMAL traffic.
-  2. BASELINE_WARMUP_WINDOWS (30) exceeds the demo arc's original
-     length (20 windows) -- without a quiet lead-in, baseline_ready
-     never flips true during the scripted demo.
+Each test's docstring/comment explains the specific bug or coverage
+gap it guards against. See module1_traffic/README.md ("Design
+decisions worth knowing about") for the full, numbered list -- kept
+there rather than duplicated here so there's one place to update, not
+two that drift out of sync with each other.
 """
 
 import unittest
@@ -63,6 +58,18 @@ class ExtractWindowFeaturesTests(unittest.TestCase):
         records = [_synthetic_normal_record(i) for i in range(20)]
         features = extract_window_features(records)
         self.assertEqual(features["port_entropy"], 0.0)  # all records use port 80
+
+    def test_avg_packet_size_matches_bytes_over_packets_invariant(self):
+        # Design doc §5.1 calls this out explicitly as "worth asserting
+        # in code" -- it hadn't been, until this test. Tolerance is one
+        # rounding step (1e-4), not exact equality: avg_packet_size is
+        # itself rounded after being derived from the rounded pps/bps
+        # below, so it can differ from their raw ratio by up to half a
+        # rounding increment.
+        records = [dict(_synthetic_normal_record(i), packet_size=100 + i) for i in range(37)]
+        features = extract_window_features(records)
+        derived = features["bytes_per_second"] / features["packets_per_second"]
+        self.assertAlmostEqual(derived, features["avg_packet_size"], delta=1e-4)
 
 
 class ProcessTrafficContractTests(unittest.TestCase):
@@ -131,6 +138,56 @@ class BaselineWarmupAndFreezeTests(unittest.TestCase):
                          syn_rate=0.99, unique_source_ips=200, failed_connections=100)
         self.assertTrue(baseline.is_frozen, "should freeze once mature baseline sees a real spike")
 
+    def _warmed_up_baseline(self):
+        baseline = AdaptiveBaseline()
+        for _ in range(config.BASELINE_WARMUP_WINDOWS):
+            baseline.update(packets_per_second=10, bytes_per_second=5000,
+                             syn_rate=0.5, unique_source_ips=40, failed_connections=1)
+        return baseline
+
+    def _quiet_update(self, baseline):
+        return baseline.update(packets_per_second=10, bytes_per_second=5000,
+                                syn_rate=0.5, unique_source_ips=40, failed_connections=1)
+
+    def _spike_update(self, baseline):
+        return baseline.update(packets_per_second=500, bytes_per_second=500000,
+                                syn_rate=0.99, unique_source_ips=200, failed_connections=100)
+
+    def test_unfreezes_after_five_consecutive_quiet_windows(self):
+        # This branch (baseline.py's `elif self._frozen: quiet_streak += 1
+        # ...`) was previously exercised by NOTHING: the scripted demo
+        # only ever escalates, so it froze once and stayed frozen for
+        # the rest of the arc. A bug here -- e.g. an off-by-one on the
+        # 5-window threshold -- would have shipped undetected.
+        baseline = self._warmed_up_baseline()
+        self._spike_update(baseline)
+        self.assertTrue(baseline.is_frozen)
+
+        for i in range(4):
+            self._quiet_update(baseline)
+            self.assertTrue(baseline.is_frozen, f"should still be frozen after {i + 1} quiet windows")
+
+        self._quiet_update(baseline)  # 5th consecutive quiet window
+        self.assertFalse(baseline.is_frozen, "should unfreeze after 5 consecutive quiet windows")
+
+    def test_quiet_streak_resets_on_renewed_spike(self):
+        baseline = self._warmed_up_baseline()
+        self._spike_update(baseline)
+        self._quiet_update(baseline)
+        self._quiet_update(baseline)  # streak = 2, still frozen
+
+        self._spike_update(baseline)  # renewed spike must reset the streak
+        self.assertTrue(baseline.is_frozen)
+
+        for i in range(4):
+            self._quiet_update(baseline)
+            self.assertTrue(
+                baseline.is_frozen,
+                f"streak should have been reset by the renewed spike (only {i + 1} quiet windows since)",
+            )
+        self._quiet_update(baseline)  # 5th quiet window since the reset
+        self.assertFalse(baseline.is_frozen)
+
 
 class DemoGeneratorTests(unittest.TestCase):
     def test_generator_is_deterministic(self):
@@ -160,6 +217,28 @@ class DemoGeneratorTests(unittest.TestCase):
 
         ready_at_ddos = all(ready for label, _, ready in results if label == "DDoS")
         self.assertTrue(ready_at_ddos, "baseline must be out of warmup before the DDoS scenes")
+
+    def test_destination_diversity_collapses_toward_victim_during_ddos(self):
+        # module1_traffic/README.md documents unique_destination_ips as
+        # corroborating evidence because "collapsing to one host
+        # corroborates a targeted flood" -- an earlier version of the
+        # generator never actually produced that: legit background
+        # traffic kept spanning the full 8-host pool throughout, so the
+        # feature sat flat at 8 for the entire arc regardless of attack
+        # severity, contradicting the module's own documentation.
+        normal_dests, ddos_dests = [], []
+        for stage_label, records in generate_demo_traffic():
+            dests = extract_window_features(records)["unique_destination_ips"]
+            if stage_label == "NORMAL (warmup)":
+                normal_dests.append(dests)
+            elif stage_label == "DDoS":
+                ddos_dests.append(dests)
+
+        self.assertEqual(max(normal_dests), 8, "NORMAL traffic should span the full destination pool")
+        self.assertLessEqual(
+            max(ddos_dests), 3,
+            "destination diversity should have collapsed well below 8 by the DDoS stage",
+        )
 
 
 if __name__ == "__main__":

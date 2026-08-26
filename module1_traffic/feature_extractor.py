@@ -97,47 +97,73 @@ def extract_window_features(records, window_seconds=None):
     dst_ips = {r["dst_ip"] for r in records}
     tcp_records = [r for r in records if r["protocol"] == "TCP"]
     syn_records = [r for r in tcp_records if r["tcp_flag"] == "SYN"]
-    failed = sum(1 for r in records if r.get("connection_failed"))
+    # Strict indexing, like every other field -- a `.get()` here would
+    # silently treat a record missing this key as "connection
+    # succeeded," masking a bug in whatever produced it, instead of
+    # failing loudly the way a missing src_ip/packet_size/etc. would.
+    failed = sum(1 for r in records if r["connection_failed"])
     port_counts = Counter(r["dst_port"] for r in records)
 
     # syn_rate is a RATIO (SYN packets / TCP packets), not a throughput --
     # see design doc §5.1's note on avoiding "SYN rate" as a label.
     syn_rate = (len(syn_records) / len(tcp_records)) if tcp_records else 0.0
 
+    # Rounded uniformly (not just the ratio-valued fields) -- an
+    # unrounded division like 283360/60 prints as
+    # 4722.666666666667 in JSON, which is noise: no consumer of this
+    # contract needs float precision beyond 4 decimals, and leaving it
+    # unrounded just makes demo_windows.json harder to read and
+    # spuriously platform-sensitive.
+    #
+    # avg_packet_size is derived FROM the rounded pps/bps below, not
+    # independently from total_bytes/n. Rounding pps and bps separately
+    # and computing avg_packet_size from the raw totals broke design
+    # doc §5.1's invariant (avg_packet_size ~= bytes_per_second /
+    # packets_per_second) by up to ~0.5% in testing -- two independently
+    # rounded small numbers don't divide back to a third, independently
+    # rounded number. Deriving it from the same rounded pps/bps values
+    # actually used above makes the invariant hold by construction.
+    pps = round(n / window_seconds, 4)
+    bps = round(total_bytes / window_seconds, 4)
+    avg_size = round(bps / pps, 4) if pps > 0 else 0.0
+
     return {
-        "packets_per_second": n / window_seconds,
-        "bytes_per_second": total_bytes / window_seconds,
-        "avg_packet_size": total_bytes / n,
+        "packets_per_second": pps,
+        "bytes_per_second": bps,
+        "avg_packet_size": avg_size,
         "unique_source_ips": len(src_ips),
         "unique_destination_ips": len(dst_ips),
         "syn_rate": round(syn_rate, 4),
         "failed_connections": failed,
-        "connection_rate": len(syn_records) / window_seconds,
+        "connection_rate": round(len(syn_records) / window_seconds, 4),
         "port_entropy": round(_shannon_entropy_bits(port_counts.values()), 4),
     }
 
 
-def process_traffic(records, baseline=None, timestamp=None):
+def process_traffic(records, baseline=None, timestamp=None, window_seconds=None):
     """
     Required Module 1 entry point (design doc §5.1):
 
         window = process_traffic(raw_data)
 
-    records:   list of flow-record dicts covering exactly one
-               config.WINDOW_SECONDS window (see module docstring for
-               the record shape).
-    baseline:  optional AdaptiveBaseline instance. Defaults to a
-               module-level singleton so repeated calls accumulate
-               history automatically -- pass your own instance to run
-               multiple independent streams (e.g. in tests) in the
-               same process.
-    timestamp: ISO-8601 string for this window; defaults to "now" (UTC).
+    records:        list of flow-record dicts covering exactly one
+                     window (see module docstring for the record shape).
+    baseline:        optional AdaptiveBaseline instance. Defaults to a
+                     module-level singleton so repeated calls accumulate
+                     history automatically -- pass your own instance to
+                     run multiple independent streams (e.g. in tests)
+                     in the same process.
+    timestamp:       ISO-8601 string for this window; defaults to "now" (UTC).
+    window_seconds:  overrides config.WINDOW_SECONDS for this call.
+                     Threaded through to extract_window_features so
+                     callers can test with a non-default window length
+                     without monkeypatching the config module.
 
     Returns the full §7.1 handoff contract:
         {"timestamp", "baseline_ready", "features", "anomalies"}
     """
     baseline = baseline if baseline is not None else _default_baseline
-    features = extract_window_features(records)
+    features = extract_window_features(records, window_seconds=window_seconds)
 
     anomalies, baseline_ready = baseline.update(
         packets_per_second=features["packets_per_second"],

@@ -39,9 +39,14 @@ THREAT_SCORE_WEIGHTS = {
     "connection": WEIGHT_CONNECTION,
     "acceleration": WEIGHT_ACCELERATION,
 }
-assert abs(sum(THREAT_SCORE_WEIGHTS.values()) - 1.0) < 1e-9, (
-    "threat score weights must sum to 1.0 (design doc §2.3)"
-)
+_weight_total = sum(THREAT_SCORE_WEIGHTS.values())
+if abs(_weight_total - 1.0) >= 1e-9:
+    # A bare `assert` here would be silently stripped under `python -O`,
+    # turning a guaranteed invariant into an unenforced one -- this
+    # check needs to survive that.
+    raise ValueError(
+        f"threat score weights must sum to 1.0 (design doc §2.3), got {_weight_total}"
+    )
 
 # --- Mitigation parameters (§2.3) -----------------------------------------
 MITIGATION = {

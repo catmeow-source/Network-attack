@@ -37,12 +37,13 @@ def main():
         window["_demo_stage"] = stage_label
         output.append(window)
 
-        a = window["anomalies"]
+        a, f_ = window["anomalies"], window["features"]
         print(
             f"[{i:2d}] {stage_label:16s} ready={str(window['baseline_ready']):5s} "
             f"syn={a['syn']:.2f} traffic={a['traffic']:.2f} "
             f"source={a['source']:.2f} conn={a['connection']:.2f} "
-            f"| frozen={baseline.is_frozen}"
+            f"| frozen={baseline.is_frozen} "
+            f"| dst_ips={f_['unique_destination_ips']:2d} avg_pkt={f_['avg_packet_size']:6.1f}"
         )
 
     out_path = os.path.join(os.path.dirname(__file__), "data", "demo_windows.json")

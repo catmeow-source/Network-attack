@@ -1,11 +1,11 @@
 [
   {
-    "timestamp": "2026-08-26T14:24:13",
+    "timestamp": "2026-08-26T14:33:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 8.966666666666667,
-      "bytes_per_second": 4687.883333333333,
-      "avg_packet_size": 522.8122676579926,
+      "packets_per_second": 8.9667,
+      "bytes_per_second": 4687.8833,
+      "avg_packet_size": 522.8103,
       "unique_source_ips": 37,
       "unique_destination_ips": 8,
       "syn_rate": 0.474,
@@ -22,12 +22,12 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:25:13",
+    "timestamp": "2026-08-26T14:34:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 10.55,
-      "bytes_per_second": 5495.866666666667,
-      "avg_packet_size": 520.9352290679304,
+      "bytes_per_second": 5495.8667,
+      "avg_packet_size": 520.9352,
       "unique_source_ips": 41,
       "unique_destination_ips": 8,
       "syn_rate": 0.5024,
@@ -44,21 +44,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:26:13",
+    "timestamp": "2026-08-26T14:35:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 10.95,
-      "bytes_per_second": 5656.283333333334,
-      "avg_packet_size": 516.5555555555555,
+      "bytes_per_second": 5656.2833,
+      "avg_packet_size": 516.5556,
       "unique_source_ips": 39,
       "unique_destination_ips": 8,
       "syn_rate": 0.5221,
       "failed_connections": 3,
-      "connection_rate": 5.716666666666667,
+      "connection_rate": 5.7167,
       "port_entropy": 2.9869
     },
     "anomalies": {
-      "traffic": 0.9196753542004087,
+      "traffic": 0.9196794214901826,
       "syn": 1.0,
       "source": 0.34412360080584214,
       "connection": 1.0
@@ -66,21 +66,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:27:13",
+    "timestamp": "2026-08-26T14:36:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 9.933333333333334,
-      "bytes_per_second": 5167.166666666667,
-      "avg_packet_size": 520.1845637583892,
+      "packets_per_second": 9.9333,
+      "bytes_per_second": 5167.1667,
+      "avg_packet_size": 520.1863,
       "unique_source_ips": 37,
       "unique_destination_ips": 8,
       "syn_rate": 0.4715,
       "failed_connections": 0,
-      "connection_rate": 4.683333333333334,
+      "connection_rate": 4.6833,
       "port_entropy": 2.9876
     },
     "anomalies": {
-      "traffic": 0.2471963339862557,
+      "traffic": 0.24718109191527504,
       "syn": 0.0,
       "source": 0.0,
       "connection": 0.0
@@ -88,12 +88,12 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:28:13",
+    "timestamp": "2026-08-26T14:37:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 9.316666666666666,
+      "packets_per_second": 9.3167,
       "bytes_per_second": 4857.95,
-      "avg_packet_size": 521.4257602862255,
+      "avg_packet_size": 521.4239,
       "unique_source_ips": 45,
       "unique_destination_ips": 8,
       "syn_rate": 0.5045,
@@ -102,7 +102,7 @@
       "port_entropy": 2.9904
     },
     "anomalies": {
-      "traffic": 0.041324499925302495,
+      "traffic": 0.0413274630269397,
       "syn": 0.38848229384953176,
       "source": 1.0,
       "connection": 3.9015854714670105e-05
@@ -110,17 +110,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:29:13",
+    "timestamp": "2026-08-26T14:38:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 8.55,
-      "bytes_per_second": 4420.166666666667,
-      "avg_packet_size": 516.9785575048733,
+      "bytes_per_second": 4420.1667,
+      "avg_packet_size": 516.9786,
       "unique_source_ips": 33,
       "unique_destination_ips": 8,
       "syn_rate": 0.5049,
       "failed_connections": 0,
-      "connection_rate": 4.316666666666666,
+      "connection_rate": 4.3167,
       "port_entropy": 2.9933
     },
     "anomalies": {
@@ -132,21 +132,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:30:13",
+    "timestamp": "2026-08-26T14:39:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 11.35,
-      "bytes_per_second": 5869.833333333333,
-      "avg_packet_size": 517.165932452276,
+      "bytes_per_second": 5869.8333,
+      "avg_packet_size": 517.1659,
       "unique_source_ips": 38,
       "unique_destination_ips": 8,
       "syn_rate": 0.4831,
       "failed_connections": 1,
-      "connection_rate": 5.483333333333333,
+      "connection_rate": 5.4833,
       "port_entropy": 2.9977
     },
     "anomalies": {
-      "traffic": 0.6771711058468152,
+      "traffic": 0.6771765574068662,
       "syn": 0.03656608827111515,
       "source": 0.044993739621196904,
       "connection": 0.015127949248403808
@@ -154,17 +154,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:31:13",
+    "timestamp": "2026-08-26T14:40:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 8.25,
       "bytes_per_second": 4246.35,
-      "avg_packet_size": 514.709090909091,
+      "avg_packet_size": 514.7091,
       "unique_source_ips": 36,
       "unique_destination_ips": 8,
       "syn_rate": 0.4768,
       "failed_connections": 1,
-      "connection_rate": 3.933333333333333,
+      "connection_rate": 3.9333,
       "port_entropy": 2.9839
     },
     "anomalies": {
@@ -176,17 +176,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:32:13",
+    "timestamp": "2026-08-26T14:41:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 7.633333333333334,
-      "bytes_per_second": 3980.633333333333,
-      "avg_packet_size": 521.4803493449782,
+      "packets_per_second": 7.6333,
+      "bytes_per_second": 3980.6333,
+      "avg_packet_size": 521.4826,
       "unique_source_ips": 32,
       "unique_destination_ips": 8,
       "syn_rate": 0.4672,
       "failed_connections": 2,
-      "connection_rate": 3.566666666666667,
+      "connection_rate": 3.5667,
       "port_entropy": 2.9857
     },
     "anomalies": {
@@ -198,17 +198,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:33:13",
+    "timestamp": "2026-08-26T14:42:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 8.35,
       "bytes_per_second": 4365.2,
-      "avg_packet_size": 522.7784431137725,
+      "avg_packet_size": 522.7784,
       "unique_source_ips": 37,
       "unique_destination_ips": 8,
       "syn_rate": 0.489,
       "failed_connections": 0,
-      "connection_rate": 4.083333333333333,
+      "connection_rate": 4.0833,
       "port_entropy": 2.9967
     },
     "anomalies": {
@@ -220,12 +220,12 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:34:13",
+    "timestamp": "2026-08-26T14:43:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 7.766666666666667,
-      "bytes_per_second": 4014.3333333333335,
-      "avg_packet_size": 516.8669527896996,
+      "packets_per_second": 7.7667,
+      "bytes_per_second": 4014.3333,
+      "avg_packet_size": 516.8647,
       "unique_source_ips": 37,
       "unique_destination_ips": 8,
       "syn_rate": 0.47,
@@ -242,12 +242,12 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:35:13",
+    "timestamp": "2026-08-26T14:44:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 10.266666666666667,
+      "packets_per_second": 10.2667,
       "bytes_per_second": 5390.0,
-      "avg_packet_size": 525.0,
+      "avg_packet_size": 524.9983,
       "unique_source_ips": 30,
       "unique_destination_ips": 8,
       "syn_rate": 0.4481,
@@ -256,7 +256,7 @@
       "port_entropy": 2.9905
     },
     "anomalies": {
-      "traffic": 0.26956520359076125,
+      "traffic": 0.26956521082019286,
       "syn": 0.0,
       "source": 0.0,
       "connection": 0.011962181437905443
@@ -264,21 +264,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:36:13",
+    "timestamp": "2026-08-26T14:45:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 11.75,
       "bytes_per_second": 6136.25,
-      "avg_packet_size": 522.2340425531914,
+      "avg_packet_size": 522.234,
       "unique_source_ips": 35,
       "unique_destination_ips": 8,
       "syn_rate": 0.5206,
       "failed_connections": 1,
-      "connection_rate": 6.116666666666666,
+      "connection_rate": 6.1167,
       "port_entropy": 2.9914
     },
     "anomalies": {
-      "traffic": 0.5309879278389116,
+      "traffic": 0.5309879312589356,
       "syn": 0.5038480771649113,
       "source": 0.0,
       "connection": 0.01165779099402614
@@ -286,21 +286,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:37:13",
+    "timestamp": "2026-08-26T14:46:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 11.583333333333334,
-      "bytes_per_second": 5997.333333333333,
-      "avg_packet_size": 517.7553956834532,
+      "packets_per_second": 11.5833,
+      "bytes_per_second": 5997.3333,
+      "avg_packet_size": 517.7569,
       "unique_source_ips": 36,
       "unique_destination_ips": 8,
       "syn_rate": 0.4734,
       "failed_connections": 0,
-      "connection_rate": 5.483333333333333,
+      "connection_rate": 5.4833,
       "port_entropy": 2.9947
     },
     "anomalies": {
-      "traffic": 0.3907812881589541,
+      "traffic": 0.39077390284334773,
       "syn": 0.0,
       "source": 0.0,
       "connection": 0.0
@@ -308,12 +308,12 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:38:13",
+    "timestamp": "2026-08-26T14:47:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 10.866666666666667,
-      "bytes_per_second": 5711.733333333334,
-      "avg_packet_size": 525.6196319018405,
+      "packets_per_second": 10.8667,
+      "bytes_per_second": 5711.7333,
+      "avg_packet_size": 525.618,
       "unique_source_ips": 38,
       "unique_destination_ips": 8,
       "syn_rate": 0.4693,
@@ -322,7 +322,7 @@
       "port_entropy": 2.9907
     },
     "anomalies": {
-      "traffic": 0.2450331955729417,
+      "traffic": 0.24503319033406737,
       "syn": 0.0,
       "source": 0.09005592594727514,
       "connection": 0.0
@@ -330,21 +330,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:39:13",
+    "timestamp": "2026-08-26T14:48:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 9.75,
-      "bytes_per_second": 5130.116666666667,
-      "avg_packet_size": 526.1658119658119,
+      "bytes_per_second": 5130.1167,
+      "avg_packet_size": 526.1658,
       "unique_source_ips": 40,
       "unique_destination_ips": 8,
       "syn_rate": 0.4855,
       "failed_connections": 2,
-      "connection_rate": 4.733333333333333,
+      "connection_rate": 4.7333,
       "port_entropy": 2.9886
     },
     "anomalies": {
-      "traffic": 0.061920713393969797,
+      "traffic": 0.06192072861398675,
       "syn": 0.06613647956823039,
       "source": 0.22087711376084587,
       "connection": 0.3188699736753426
@@ -352,12 +352,12 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:40:13",
+    "timestamp": "2026-08-26T14:49:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 9.666666666666666,
+      "packets_per_second": 9.6667,
       "bytes_per_second": 5031.0,
-      "avg_packet_size": 520.448275862069,
+      "avg_packet_size": 520.4465,
       "unique_source_ips": 39,
       "unique_destination_ips": 8,
       "syn_rate": 0.4603,
@@ -366,7 +366,7 @@
       "port_entropy": 2.9958
     },
     "anomalies": {
-      "traffic": 0.03497667885268569,
+      "traffic": 0.034979360229284245,
       "syn": 0.0,
       "source": 0.14063460095188232,
       "connection": 0.28574542903299677
@@ -374,21 +374,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:41:13",
+    "timestamp": "2026-08-26T14:50:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 9.583333333333334,
-      "bytes_per_second": 5008.233333333334,
-      "avg_packet_size": 522.5982608695653,
+      "packets_per_second": 9.5833,
+      "bytes_per_second": 5008.2333,
+      "avg_packet_size": 522.6001,
       "unique_source_ips": 36,
       "unique_destination_ips": 8,
       "syn_rate": 0.4417,
       "failed_connections": 1,
-      "connection_rate": 4.233333333333333,
+      "connection_rate": 4.2333,
       "port_entropy": 2.9939
     },
     "anomalies": {
-      "traffic": 0.02381213658016522,
+      "traffic": 0.02381213175258536,
       "syn": 0.0,
       "source": 0.0,
       "connection": 0.005284887809907899
@@ -396,21 +396,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:42:13",
+    "timestamp": "2026-08-26T14:51:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 9.55,
-      "bytes_per_second": 4958.766666666666,
-      "avg_packet_size": 519.2425828970331,
+      "bytes_per_second": 4958.7667,
+      "avg_packet_size": 519.2426,
       "unique_source_ips": 35,
       "unique_destination_ips": 8,
       "syn_rate": 0.5061,
       "failed_connections": 1,
-      "connection_rate": 4.833333333333333,
+      "connection_rate": 4.8333,
       "port_entropy": 2.9849
     },
     "anomalies": {
-      "traffic": 0.015309020879872017,
+      "traffic": 0.015306688310826615,
       "syn": 0.2819507037181551,
       "source": 0.0,
       "connection": 0.00515094198407312
@@ -418,12 +418,12 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:43:13",
+    "timestamp": "2026-08-26T14:52:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 10.5,
       "bytes_per_second": 5484.75,
-      "avg_packet_size": 522.3571428571429,
+      "avg_packet_size": 522.3571,
       "unique_source_ips": 30,
       "unique_destination_ips": 8,
       "syn_rate": 0.4952,
@@ -432,7 +432,7 @@
       "port_entropy": 2.9921
     },
     "anomalies": {
-      "traffic": 0.1724051513840993,
+      "traffic": 0.17240515525653669,
       "syn": 0.15685974184973786,
       "source": 0.0,
       "connection": 0.5413518656561972
@@ -440,17 +440,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:44:13",
+    "timestamp": "2026-08-26T14:53:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 8.4,
-      "bytes_per_second": 4402.833333333333,
-      "avg_packet_size": 524.1468253968254,
+      "bytes_per_second": 4402.8333,
+      "avg_packet_size": 524.1468,
       "unique_source_ips": 38,
       "unique_destination_ips": 8,
       "syn_rate": 0.4921,
       "failed_connections": 1,
-      "connection_rate": 4.133333333333334,
+      "connection_rate": 4.1333,
       "port_entropy": 2.9821
     },
     "anomalies": {
@@ -462,21 +462,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:45:13",
+    "timestamp": "2026-08-26T14:54:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 9.933333333333334,
-      "bytes_per_second": 5126.533333333334,
-      "avg_packet_size": 516.0939597315436,
+      "packets_per_second": 9.9333,
+      "bytes_per_second": 5126.5333,
+      "avg_packet_size": 516.0957,
       "unique_source_ips": 34,
       "unique_destination_ips": 8,
       "syn_rate": 0.4614,
       "failed_connections": 2,
-      "connection_rate": 4.583333333333333,
+      "connection_rate": 4.5833,
       "port_entropy": 2.9924
     },
     "anomalies": {
-      "traffic": 0.07773106192770406,
+      "traffic": 0.0777239637322839,
       "syn": 0.0,
       "source": 0.0,
       "connection": 0.2104933935153247
@@ -484,17 +484,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:46:13",
+    "timestamp": "2026-08-26T14:55:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 8.233333333333333,
-      "bytes_per_second": 4223.333333333333,
-      "avg_packet_size": 512.9554655870445,
+      "packets_per_second": 8.2333,
+      "bytes_per_second": 4223.3333,
+      "avg_packet_size": 512.9575,
       "unique_source_ips": 38,
       "unique_destination_ips": 8,
       "syn_rate": 0.4636,
       "failed_connections": 2,
-      "connection_rate": 3.816666666666667,
+      "connection_rate": 3.8167,
       "port_entropy": 2.9914
     },
     "anomalies": {
@@ -506,17 +506,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:47:13",
+    "timestamp": "2026-08-26T14:56:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 8.166666666666666,
-      "bytes_per_second": 4233.333333333333,
-      "avg_packet_size": 518.3673469387755,
+      "packets_per_second": 8.1667,
+      "bytes_per_second": 4233.3333,
+      "avg_packet_size": 518.3652,
       "unique_source_ips": 35,
       "unique_destination_ips": 8,
       "syn_rate": 0.4918,
       "failed_connections": 0,
-      "connection_rate": 4.016666666666667,
+      "connection_rate": 4.0167,
       "port_entropy": 2.9948
     },
     "anomalies": {
@@ -528,17 +528,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:48:13",
+    "timestamp": "2026-08-26T14:57:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 8.683333333333334,
+      "packets_per_second": 8.6833,
       "bytes_per_second": 4481.5,
-      "avg_packet_size": 516.1036468330134,
+      "avg_packet_size": 516.1056,
       "unique_source_ips": 45,
       "unique_destination_ips": 8,
       "syn_rate": 0.4856,
       "failed_connections": 2,
-      "connection_rate": 4.216666666666667,
+      "connection_rate": 4.2167,
       "port_entropy": 2.992
     },
     "anomalies": {
@@ -550,21 +550,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:49:13",
+    "timestamp": "2026-08-26T14:58:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 9.633333333333333,
-      "bytes_per_second": 4994.116666666667,
-      "avg_packet_size": 518.4204152249135,
+      "packets_per_second": 9.6333,
+      "bytes_per_second": 4994.1167,
+      "avg_packet_size": 518.4222,
       "unique_source_ips": 39,
       "unique_destination_ips": 8,
       "syn_rate": 0.5311,
       "failed_connections": 3,
-      "connection_rate": 5.116666666666666,
+      "connection_rate": 5.1167,
       "port_entropy": 2.9946
     },
     "anomalies": {
-      "traffic": 0.05149661044428317,
+      "traffic": 0.05149003629375345,
       "syn": 0.5068457967645306,
       "source": 0.11204237668952492,
       "connection": 0.3969402806215445
@@ -572,21 +572,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:50:13",
+    "timestamp": "2026-08-26T14:59:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 11.033333333333333,
+      "packets_per_second": 11.0333,
       "bytes_per_second": 5732.1,
-      "avg_packet_size": 519.5256797583081,
+      "avg_packet_size": 519.5272,
       "unique_source_ips": 40,
       "unique_destination_ips": 8,
       "syn_rate": 0.4773,
       "failed_connections": 1,
-      "connection_rate": 5.266666666666667,
+      "connection_rate": 5.2667,
       "port_entropy": 2.9858
     },
     "anomalies": {
-      "traffic": 0.2860243194372254,
+      "traffic": 0.286018915940017,
       "syn": 0.0,
       "source": 0.16116974957264432,
       "connection": 0.0
@@ -594,21 +594,21 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:51:13",
+    "timestamp": "2026-08-26T15:00:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 10.316666666666666,
-      "bytes_per_second": 5359.583333333333,
-      "avg_packet_size": 519.5072697899839,
+      "packets_per_second": 10.3167,
+      "bytes_per_second": 5359.5833,
+      "avg_packet_size": 519.5056,
       "unique_source_ips": 39,
       "unique_destination_ips": 8,
       "syn_rate": 0.4927,
       "failed_connections": 4,
-      "connection_rate": 5.083333333333333,
+      "connection_rate": 5.0833,
       "port_entropy": 2.9948
     },
     "anomalies": {
-      "traffic": 0.14457998590968515,
+      "traffic": 0.14458571187690714,
       "syn": 0.09560164592201266,
       "source": 0.10021368448993735,
       "connection": 0.5514675203675047
@@ -616,17 +616,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:52:13",
+    "timestamp": "2026-08-26T15:01:31",
     "baseline_ready": false,
     "features": {
       "packets_per_second": 8.6,
       "bytes_per_second": 4477.55,
-      "avg_packet_size": 520.6453488372093,
+      "avg_packet_size": 520.6453,
       "unique_source_ips": 34,
       "unique_destination_ips": 8,
       "syn_rate": 0.4845,
       "failed_connections": 2,
-      "connection_rate": 4.166666666666667,
+      "connection_rate": 4.1667,
       "port_entropy": 2.9909
     },
     "anomalies": {
@@ -638,12 +638,12 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:53:13",
+    "timestamp": "2026-08-26T15:02:31",
     "baseline_ready": false,
     "features": {
-      "packets_per_second": 9.066666666666666,
+      "packets_per_second": 9.0667,
       "bytes_per_second": 4695.2,
-      "avg_packet_size": 517.8529411764706,
+      "avg_packet_size": 517.851,
       "unique_source_ips": 37,
       "unique_destination_ips": 8,
       "syn_rate": 0.4963,
@@ -660,17 +660,17 @@
     "_demo_stage": "NORMAL (warmup)"
   },
   {
-    "timestamp": "2026-08-26T14:54:13",
+    "timestamp": "2026-08-26T15:03:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 8.883333333333333,
-      "bytes_per_second": 4565.416666666667,
-      "avg_packet_size": 513.9305816135085,
+      "packets_per_second": 8.8833,
+      "bytes_per_second": 4565.4167,
+      "avg_packet_size": 513.9325,
       "unique_source_ips": 39,
       "unique_destination_ips": 8,
       "syn_rate": 0.5084,
       "failed_connections": 3,
-      "connection_rate": 4.516666666666667,
+      "connection_rate": 4.5167,
       "port_entropy": 2.9824
     },
     "anomalies": {
@@ -682,17 +682,17 @@
     "_demo_stage": "NORMAL"
   },
   {
-    "timestamp": "2026-08-26T14:55:13",
+    "timestamp": "2026-08-26T15:04:31",
     "baseline_ready": true,
     "features": {
       "packets_per_second": 8.75,
       "bytes_per_second": 4423.25,
-      "avg_packet_size": 505.51428571428573,
+      "avg_packet_size": 505.5143,
       "unique_source_ips": 38,
       "unique_destination_ips": 8,
       "syn_rate": 0.4495,
       "failed_connections": 3,
-      "connection_rate": 3.933333333333333,
+      "connection_rate": 3.9333,
       "port_entropy": 2.9966
     },
     "anomalies": {
@@ -704,12 +704,12 @@
     "_demo_stage": "NORMAL"
   },
   {
-    "timestamp": "2026-08-26T14:56:13",
+    "timestamp": "2026-08-26T15:05:31",
     "baseline_ready": true,
     "features": {
       "packets_per_second": 10.4,
-      "bytes_per_second": 5281.416666666667,
-      "avg_packet_size": 507.82852564102564,
+      "bytes_per_second": 5281.4167,
+      "avg_packet_size": 507.8285,
       "unique_source_ips": 40,
       "unique_destination_ips": 8,
       "syn_rate": 0.5,
@@ -718,7 +718,7 @@
       "port_entropy": 2.9943
     },
     "anomalies": {
-      "traffic": 0.1826504372010186,
+      "traffic": 0.18265041721528696,
       "syn": 0.1469621895690332,
       "source": 0.16227399086047573,
       "connection": 0.0
@@ -726,21 +726,21 @@
     "_demo_stage": "NORMAL"
   },
   {
-    "timestamp": "2026-08-26T14:57:13",
+    "timestamp": "2026-08-26T15:06:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 10.383333333333333,
-      "bytes_per_second": 5264.083333333333,
-      "avg_packet_size": 506.9743178170144,
+      "packets_per_second": 10.3833,
+      "bytes_per_second": 5264.0833,
+      "avg_packet_size": 506.9759,
       "unique_source_ips": 44,
       "unique_destination_ips": 8,
       "syn_rate": 0.5185,
       "failed_connections": 3,
-      "connection_rate": 5.383333333333334,
+      "connection_rate": 5.3833,
       "port_entropy": 2.9959
     },
     "anomalies": {
-      "traffic": 0.17002813652257473,
+      "traffic": 0.1700223445724627,
       "syn": 0.29561568127828625,
       "source": 0.38622211615109353,
       "connection": 0.2389147505014985
@@ -748,12 +748,12 @@
     "_demo_stage": "NORMAL"
   },
   {
-    "timestamp": "2026-08-26T14:58:13",
+    "timestamp": "2026-08-26T15:07:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 9.833333333333334,
-      "bytes_per_second": 4923.333333333333,
-      "avg_packet_size": 500.6779661016949,
+      "packets_per_second": 9.8333,
+      "bytes_per_second": 4923.3333,
+      "avg_packet_size": 500.6797,
       "unique_source_ips": 43,
       "unique_destination_ips": 8,
       "syn_rate": 0.4932,
@@ -762,7 +762,7 @@
       "port_entropy": 2.9941
     },
     "anomalies": {
-      "traffic": 0.06645442387165569,
+      "traffic": 0.06644866932218566,
       "syn": 0.06556935197111037,
       "source": 0.28147479570311845,
       "connection": 0.0
@@ -770,17 +770,17 @@
     "_demo_stage": "NORMAL"
   },
   {
-    "timestamp": "2026-08-26T14:59:13",
+    "timestamp": "2026-08-26T15:08:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 9.266666666666667,
-      "bytes_per_second": 4465.133333333333,
-      "avg_packet_size": 481.84892086330933,
+      "packets_per_second": 9.2667,
+      "bytes_per_second": 4465.1333,
+      "avg_packet_size": 481.8472,
       "unique_source_ips": 43,
       "unique_destination_ips": 8,
       "syn_rate": 0.4946,
       "failed_connections": 2,
-      "connection_rate": 4.583333333333333,
+      "connection_rate": 4.5833,
       "port_entropy": 2.7159
     },
     "anomalies": {
@@ -792,12 +792,12 @@
     "_demo_stage": "ANOMALY"
   },
   {
-    "timestamp": "2026-08-26T15:00:13",
+    "timestamp": "2026-08-26T15:09:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 11.216666666666667,
+      "packets_per_second": 11.2167,
       "bytes_per_second": 5297.05,
-      "avg_packet_size": 472.2481426448737,
+      "avg_packet_size": 472.2467,
       "unique_source_ips": 45,
       "unique_destination_ips": 8,
       "syn_rate": 0.5394,
@@ -806,7 +806,7 @@
       "port_entropy": 2.7742
     },
     "anomalies": {
-      "traffic": 0.3184884448398552,
+      "traffic": 0.3184962142148701,
       "syn": 0.44650110344583355,
       "source": 0.3347799265589424,
       "connection": 1.0
@@ -814,128 +814,150 @@
     "_demo_stage": "ANOMALY"
   },
   {
-    "timestamp": "2026-08-26T15:01:13",
+    "timestamp": "2026-08-26T15:10:31",
     "baseline_ready": true,
     "features": {
       "packets_per_second": 15.65,
-      "bytes_per_second": 7263.583333333333,
-      "avg_packet_size": 464.12673056443026,
+      "bytes_per_second": 7242.65,
+      "avg_packet_size": 462.7891,
       "unique_source_ips": 48,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.5495,
-      "failed_connections": 11,
-      "connection_rate": 8.6,
-      "port_entropy": 2.6855
+      "unique_destination_ips": 7,
+      "syn_rate": 0.5485,
+      "failed_connections": 15,
+      "connection_rate": 8.5833,
+      "port_entropy": 2.6497
     },
     "anomalies": {
       "traffic": 1.0,
-      "syn": 0.53074348292751,
+      "syn": 0.5224026532758589,
       "source": 0.4821580155931788,
       "connection": 1.0
     },
     "_demo_stage": "ANOMALY"
   },
   {
-    "timestamp": "2026-08-26T15:02:13",
+    "timestamp": "2026-08-26T15:11:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 11.616666666666667,
-      "bytes_per_second": 5249.983333333334,
-      "avg_packet_size": 451.93543758967,
-      "unique_source_ips": 48,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.5524,
-      "failed_connections": 11,
-      "connection_rate": 6.416666666666667,
-      "port_entropy": 2.5504
+      "packets_per_second": 10.05,
+      "bytes_per_second": 4507.8667,
+      "avg_packet_size": 448.544,
+      "unique_source_ips": 42,
+      "unique_destination_ips": 7,
+      "syn_rate": 0.5158,
+      "failed_connections": 8,
+      "connection_rate": 5.1833,
+      "port_entropy": 2.545
     },
     "anomalies": {
-      "traffic": 0.39093555121097984,
-      "syn": 0.5549318889172984,
-      "source": 0.4821580155931788,
+      "traffic": 0.10718473481524948,
+      "syn": 0.24965752366686741,
+      "source": 0.187401837524706,
       "connection": 1.0
     },
     "_demo_stage": "ANOMALY"
   },
   {
-    "timestamp": "2026-08-26T15:03:13",
+    "timestamp": "2026-08-26T15:12:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 12.516666666666667,
-      "bytes_per_second": 5404.316666666667,
-      "avg_packet_size": 431.7696404793609,
-      "unique_source_ips": 41,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.5686,
-      "failed_connections": 11,
-      "connection_rate": 7.116666666666666,
-      "port_entropy": 2.4905
+      "packets_per_second": 17.0,
+      "bytes_per_second": 7320.1333,
+      "avg_packet_size": 430.5961,
+      "unique_source_ips": 54,
+      "unique_destination_ips": 6,
+      "syn_rate": 0.5765,
+      "failed_connections": 14,
+      "connection_rate": 9.8,
+      "port_entropy": 2.531
     },
     "anomalies": {
-      "traffic": 0.5539415405460101,
-      "syn": 0.6900533292740465,
-      "source": 0.13827580784662719,
+      "traffic": 1.0,
+      "syn": 0.7559458835220906,
+      "source": 0.7769141936616516,
       "connection": 1.0
     },
     "_demo_stage": "SCANNING"
   },
   {
-    "timestamp": "2026-08-26T15:04:13",
+    "timestamp": "2026-08-26T15:13:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 15.016666666666667,
-      "bytes_per_second": 6208.8,
-      "avg_packet_size": 413.46059933407327,
-      "unique_source_ips": 49,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.6093,
-      "failed_connections": 9,
-      "connection_rate": 9.15,
-      "port_entropy": 2.3816
+      "packets_per_second": 15.4,
+      "bytes_per_second": 6371.3667,
+      "avg_packet_size": 413.7251,
+      "unique_source_ips": 57,
+      "unique_destination_ips": 6,
+      "syn_rate": 0.6342,
+      "failed_connections": 16,
+      "connection_rate": 9.7667,
+      "port_entropy": 2.4887
     },
     "anomalies": {
       "traffic": 1.0,
       "syn": 1.0,
-      "source": 0.5312840452712576,
+      "source": 0.924292282695888,
       "connection": 1.0
     },
     "_demo_stage": "SCANNING"
   },
   {
-    "timestamp": "2026-08-26T15:05:13",
+    "timestamp": "2026-08-26T15:14:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 15.466666666666667,
-      "bytes_per_second": 6158.716666666666,
-      "avg_packet_size": 398.1928879310345,
-      "unique_source_ips": 47,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.6002,
-      "failed_connections": 15,
-      "connection_rate": 9.283333333333333,
-      "port_entropy": 2.3859
+      "packets_per_second": 13.35,
+      "bytes_per_second": 5298.7667,
+      "avg_packet_size": 396.9114,
+      "unique_source_ips": 52,
+      "unique_destination_ips": 6,
+      "syn_rate": 0.6005,
+      "failed_connections": 12,
+      "connection_rate": 8.0167,
+      "port_entropy": 2.3027
+    },
+    "anomalies": {
+      "traffic": 0.7048772710445702,
+      "syn": 0.9561257951617178,
+      "source": 0.6786621343054939,
+      "connection": 1.0
+    },
+    "_demo_stage": "SCANNING"
+  },
+  {
+    "timestamp": "2026-08-26T15:15:31",
+    "baseline_ready": true,
+    "features": {
+      "packets_per_second": 16.1167,
+      "bytes_per_second": 6096.9667,
+      "avg_packet_size": 378.3012,
+      "unique_source_ips": 52,
+      "unique_destination_ips": 5,
+      "syn_rate": 0.6412,
+      "failed_connections": 22,
+      "connection_rate": 10.3333,
+      "port_entropy": 2.5336
     },
     "anomalies": {
       "traffic": 1.0,
-      "syn": 0.9536235462662218,
-      "source": 0.4330319859151,
+      "syn": 1.0,
+      "source": 0.6786621343054939,
       "connection": 1.0
     },
     "_demo_stage": "SCANNING"
   },
   {
-    "timestamp": "2026-08-26T15:06:13",
+    "timestamp": "2026-08-26T15:16:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 16.383333333333333,
-      "bytes_per_second": 6208.766666666666,
-      "avg_packet_size": 378.9684638860631,
+      "packets_per_second": 19.7833,
+      "bytes_per_second": 6869.8,
+      "avg_packet_size": 347.2525,
       "unique_source_ips": 51,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.6104,
-      "failed_connections": 14,
-      "connection_rate": 10.0,
-      "port_entropy": 2.3717
+      "unique_destination_ips": 4,
+      "syn_rate": 0.6706,
+      "failed_connections": 37,
+      "connection_rate": 13.2667,
+      "port_entropy": 2.0826
     },
     "anomalies": {
       "traffic": 1.0,
@@ -943,109 +965,87 @@
       "source": 0.6295361046274152,
       "connection": 1.0
     },
-    "_demo_stage": "SCANNING"
+    "_demo_stage": "ATTACK IMMINENT"
   },
   {
-    "timestamp": "2026-08-26T15:07:13",
+    "timestamp": "2026-08-26T15:17:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 16.116666666666667,
-      "bytes_per_second": 5658.733333333334,
-      "avg_packet_size": 351.1106514994829,
-      "unique_source_ips": 55,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.6505,
-      "failed_connections": 23,
-      "connection_rate": 10.483333333333333,
-      "port_entropy": 2.3133
+      "packets_per_second": 13.6,
+      "bytes_per_second": 4303.8667,
+      "avg_packet_size": 316.4608,
+      "unique_source_ips": 58,
+      "unique_destination_ips": 4,
+      "syn_rate": 0.6801,
+      "failed_connections": 28,
+      "connection_rate": 9.25,
+      "port_entropy": 2.2901
     },
     "anomalies": {
-      "traffic": 1.0,
+      "traffic": 0.7501570086377006,
       "syn": 1.0,
-      "source": 0.8260402233397305,
+      "source": 0.9734183123739668,
       "connection": 1.0
     },
     "_demo_stage": "ATTACK IMMINENT"
   },
   {
-    "timestamp": "2026-08-26T15:08:13",
+    "timestamp": "2026-08-26T15:18:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 19.65,
-      "bytes_per_second": 6155.45,
-      "avg_packet_size": 313.25445292620867,
-      "unique_source_ips": 61,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.6726,
-      "failed_connections": 37,
-      "connection_rate": 13.216666666666667,
-      "port_entropy": 2.0189
+      "packets_per_second": 27.4167,
+      "bytes_per_second": 7705.5833,
+      "avg_packet_size": 281.0544,
+      "unique_source_ips": 56,
+      "unique_destination_ips": 4,
+      "syn_rate": 0.7003,
+      "failed_connections": 71,
+      "connection_rate": 19.2,
+      "port_entropy": 1.8608
     },
     "anomalies": {
       "traffic": 1.0,
       "syn": 1.0,
-      "source": 1.0,
+      "source": 0.8751662530178091,
       "connection": 1.0
     },
     "_demo_stage": "ATTACK IMMINENT"
   },
   {
-    "timestamp": "2026-08-26T15:09:13",
+    "timestamp": "2026-08-26T15:19:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 16.883333333333333,
-      "bytes_per_second": 4738.733333333334,
-      "avg_packet_size": 280.675222112537,
-      "unique_source_ips": 59,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.7187,
-      "failed_connections": 45,
-      "connection_rate": 12.133333333333333,
-      "port_entropy": 2.1455
+      "packets_per_second": 23.2667,
+      "bytes_per_second": 5811.3333,
+      "avg_packet_size": 249.7704,
+      "unique_source_ips": 58,
+      "unique_destination_ips": 3,
+      "syn_rate": 0.7464,
+      "failed_connections": 62,
+      "connection_rate": 17.3667,
+      "port_entropy": 1.8528
     },
     "anomalies": {
       "traffic": 1.0,
       "syn": 1.0,
-      "source": 1.0,
+      "source": 0.9734183123739668,
       "connection": 1.0
     },
     "_demo_stage": "ATTACK IMMINENT"
   },
   {
-    "timestamp": "2026-08-26T15:10:13",
+    "timestamp": "2026-08-26T15:20:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 21.116666666666667,
-      "bytes_per_second": 5276.9,
-      "avg_packet_size": 249.8926598263615,
-      "unique_source_ips": 66,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.7348,
-      "failed_connections": 58,
-      "connection_rate": 15.516666666666667,
-      "port_entropy": 2.1043
-    },
-    "anomalies": {
-      "traffic": 1.0,
-      "syn": 1.0,
-      "source": 1.0,
-      "connection": 1.0
-    },
-    "_demo_stage": "ATTACK IMMINENT"
-  },
-  {
-    "timestamp": "2026-08-26T15:11:13",
-    "baseline_ready": true,
-    "features": {
-      "packets_per_second": 26.933333333333334,
-      "bytes_per_second": 5074.95,
-      "avg_packet_size": 188.4263613861386,
-      "unique_source_ips": 78,
-      "unique_destination_ips": 8,
+      "packets_per_second": 27.6167,
+      "bytes_per_second": 5202.5333,
+      "avg_packet_size": 188.3836,
+      "unique_source_ips": 77,
+      "unique_destination_ips": 2,
       "syn_rate": 0.8045,
-      "failed_connections": 138,
-      "connection_rate": 21.666666666666668,
-      "port_entropy": 1.5911
+      "failed_connections": 148,
+      "connection_rate": 22.2167,
+      "port_entropy": 1.1672
     },
     "anomalies": {
       "traffic": 1.0,
@@ -1056,18 +1056,18 @@
     "_demo_stage": "DDoS"
   },
   {
-    "timestamp": "2026-08-26T15:12:13",
+    "timestamp": "2026-08-26T15:21:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 37.53333333333333,
-      "bytes_per_second": 4719.15,
-      "avg_packet_size": 125.7322380106572,
-      "unique_source_ips": 91,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.8583,
-      "failed_connections": 275,
-      "connection_rate": 32.21666666666667,
-      "port_entropy": 1.5991
+      "packets_per_second": 36.5,
+      "bytes_per_second": 4601.3333,
+      "avg_packet_size": 126.0639,
+      "unique_source_ips": 84,
+      "unique_destination_ips": 2,
+      "syn_rate": 0.8644,
+      "failed_connections": 221,
+      "connection_rate": 31.55,
+      "port_entropy": 1.279
     },
     "anomalies": {
       "traffic": 1.0,
@@ -1078,18 +1078,18 @@
     "_demo_stage": "DDoS"
   },
   {
-    "timestamp": "2026-08-26T15:13:13",
+    "timestamp": "2026-08-26T15:22:31",
     "baseline_ready": true,
     "features": {
-      "packets_per_second": 51.983333333333334,
-      "bytes_per_second": 3300.483333333333,
-      "avg_packet_size": 63.491183071497275,
-      "unique_source_ips": 107,
-      "unique_destination_ips": 8,
-      "syn_rate": 0.9093,
-      "failed_connections": 471,
-      "connection_rate": 47.266666666666666,
-      "port_entropy": 0.8444
+      "packets_per_second": 51.45,
+      "bytes_per_second": 3264.4333,
+      "avg_packet_size": 63.4487,
+      "unique_source_ips": 111,
+      "unique_destination_ips": 1,
+      "syn_rate": 0.9122,
+      "failed_connections": 470,
+      "connection_rate": 46.9333,
+      "port_entropy": 1.035
     },
     "anomalies": {
       "traffic": 1.0,
