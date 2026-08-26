@@ -38,6 +38,21 @@ from .baseline import AdaptiveBaseline
 _default_baseline = AdaptiveBaseline()
 
 
+def reset_default_baseline():
+    """Replace the module-level default baseline with a fresh one.
+
+    Nothing in this repo relies on the default baseline today -- every
+    call site here and in tests passes its own `baseline=` explicitly.
+    But it's process-lifetime global state, and the first test anyone
+    writes that calls process_traffic(records) without a baseline=
+    would silently inherit history from every earlier call in the same
+    test run. Call this in a test's setUp()/tearDown() if that ever
+    happens.
+    """
+    global _default_baseline
+    _default_baseline = AdaptiveBaseline()
+
+
 def _shannon_entropy_bits(counts):
     total = sum(counts)
     if total == 0:
@@ -51,9 +66,18 @@ def _shannon_entropy_bits(counts):
     return entropy
 
 
-def extract_window_features(records, window_seconds=config.WINDOW_SECONDS):
+def extract_window_features(records, window_seconds=None):
     """Aggregate one window's worth of flow records into the `features`
-    block of the Module 1 output contract. Pure function, no state."""
+    block of the Module 1 output contract. Pure function, no state.
+
+    window_seconds resolves against config.WINDOW_SECONDS at CALL time,
+    not import time -- a plain `window_seconds=config.WINDOW_SECONDS`
+    default would bake the value in when this module first loads, so
+    changing the config afterwards (e.g. a faster demo speed) would be
+    silently ignored.
+    """
+    if window_seconds is None:
+        window_seconds = config.WINDOW_SECONDS
     n = len(records)
     if n == 0:
         return {
